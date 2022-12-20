@@ -1,6 +1,6 @@
 function solution(brown, yellow) {
   let answer = []; // 리턴값을 위해 빈 배열 할당
-  let sum = brown + yellow; // 전체 카펫 격자 수
+  let sum = brown + yellow; // 전체 카펫 타일 수
 
   for (let height = 3; height <= brown; height++) {
     if (sum % height === 0) {
@@ -11,7 +11,6 @@ function solution(brown, yellow) {
   return answer; // 해당 경우가 존재하지 않으면 빈 배열 리턴
 }
 
-//40분
 // 정확성  테스트
 // 테스트 1 〉	통과 (0.04ms, 33.6MB)
 // 테스트 2 〉	통과 (0.04ms, 33.4MB)
