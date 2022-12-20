@@ -2,7 +2,6 @@ function solution(n, words) {
   //나왔던 단어가 또 나오면 탈락
   let turn = 1;
   for (let i = 1; i < words.length; i++) {
-    console.log(words.slice(0, 1));
     //처음에 나온 단어의 끝 알파벳이 그 다음에 나온 단어의 첫 알파벳이 같고, 이전에 등장했던 단어와 다른 경우에 대한 변수
     let pass =
       words[i][0] === words[i - 1][words[i - 1].length - 1] &&
