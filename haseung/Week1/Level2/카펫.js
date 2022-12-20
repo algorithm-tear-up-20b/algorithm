@@ -1,16 +1,19 @@
 function solution(brown, yellow) {
   let answer = []; // 리턴값을 위해 빈 배열 할당
   let sum = brown + yellow; // 전체 카펫 타일 수
+  console.log("🚀 ~ file: 카펫.js:4 ~ solution ~ sum", sum);
 
   for (let height = 3; height <= brown; height++) {
     if (sum % height === 0) {
       let width = sum / height; // 가로 길이
+      console.log("🚀 ~ file: 카펫.js:9 ~ solution ~ width", width);
       if ((height - 2) * (width - 2) === yellow) return [width, height];
     }
   }
   return answer; // 해당 경우가 존재하지 않으면 빈 배열 리턴
 }
 
+console.log(solution(8, 1));
 // 정확성  테스트
 // 테스트 1 〉	통과 (0.04ms, 33.6MB)
 // 테스트 2 〉	통과 (0.04ms, 33.4MB)

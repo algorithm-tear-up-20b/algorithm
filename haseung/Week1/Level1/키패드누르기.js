@@ -10,6 +10,7 @@ function solution(numbers, hand) {
   // 거리가 같은 경우, 왼손,오른손 여부를 따져서 L or R 리턴
   // left가 작으면 더 가까운 거리라는 말이니까 그 숫자를 leftNum으로 할당하고 L 리턴
   // right가 작으면 그 숫자를 rightNum으로 할당하고 R 리턴
+
   let star = 10;
   let hashTag = 12;
 
@@ -23,10 +24,10 @@ function solution(numbers, hand) {
     return "R";
   };
 
-  const numOfLocation = (num) => [Math.floor((num - 1) / 3), (num - 1) % 3];
+  const numOfLocation = (num) => [Math.floor((num - 1) / 3), (num - 1) % 3]; // 누른 숫자의 현재 위치
 
   const distanceBetweenLocation = (numArrayOne, numArrayTwo) =>
-    Math.abs(numArrayOne[0] - numArrayTwo[0]) + Math.abs(numArrayOne[1] - numArrayTwo[1]);
+    Math.abs(numArrayOne[0] - numArrayTwo[0]) + Math.abs(numArrayOne[1] - numArrayTwo[1]); // 두 숫자 사이의 간격
 
   const isLeftOrRightHand = (hand, number) => (hand === "left" ? leftTo(number) : rightTo(number));
 
@@ -35,7 +36,9 @@ function solution(numbers, hand) {
       if (number === 0) number = 11;
       //1,4,7을 누른 경우
       if (number % 3 === 1) return leftTo(number);
+      //3,6,9를 누른 경우
       else if (number % 3 === 0) return rightTo(number);
+      //그 외의 번호를 누른 경우
       else {
         const location = numOfLocation(number);
         const leftNumber = distanceBetweenLocation(numOfLocation(star), location);

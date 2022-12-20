@@ -7,7 +7,9 @@ function solution(n, words) {
       words[i][0] === words[i - 1][words[i - 1].length - 1] &&
       !words.slice(0, i).includes(words[i]);
 
+    /* Checking if the turn is over. */
     if (i % n === 0) turn++; // 탈락하는 경우
+    /* Checking if the game is over. */
     if (!pass) return [(i % n) + 1, turn]; //끝말잇기가 끝나는 경우
   }
   return [0, 0];

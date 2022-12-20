@@ -8,12 +8,17 @@ function solution(foods) {
   let str = "";
   for (let i = 1; i < foods.length; i++) {
     str += String(i).repeat(Math.floor(foods[i] / 2));
+    console.log(str);
+
+    // 1
+    // 122
+    // 122333
   }
 
   return str + "0" + [...str].reverse().join("");
 }
 
-console.log(solution([1, 3, 4, 6]));
+console.log(solution([1, 7, 1, 2]));
 
 // 정확성  테스트
 // 테스트 1 〉	통과 (0.10ms, 33.5MB)
