@@ -1,12 +1,12 @@
 function solution(arr) {
   let answer = 0;
 
-  const gcd = (a, b) => {
-    if (b === 0) return a;
-    return gcd(b, a % b);
+  const gcd = (first, second) => {
+    if (second === 0) return first;
+    return gcd(second, first % second);
   };
 
-  const lcm = (a, b) => (a * b) / gcd(a, b);
+  const lcm = (first, second) => (first * second) / gcd(first, second);
   answer = arr.reduce((acc, cur) => lcm(acc, cur));
   return answer;
 }
