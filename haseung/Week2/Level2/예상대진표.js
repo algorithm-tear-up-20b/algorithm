@@ -17,8 +17,6 @@ function solution(n, a, b) {
   return currentRound;
 }
 
-//30분
-
 // 정확성  테스트
 // 테스트 1 〉	통과 (0.05ms, 33.4MB)
 // 테스트 2 〉	통과 (0.07ms, 33.4MB)
