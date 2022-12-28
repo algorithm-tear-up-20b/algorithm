@@ -43,6 +43,8 @@ function solution(s) {
     //obj[s[i]] === 0 일때 조건을 걸러야함
     if (obj[s[i]] !== undefined) arr.push(i - obj[s[i]]);
     else arr.push(-1);
+
+    //obj에 i저장
     obj[s[i]] = i;
   }
 
