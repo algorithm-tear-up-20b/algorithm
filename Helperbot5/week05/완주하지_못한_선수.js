@@ -22,8 +22,8 @@ function solution(participant, completion) {
   const map = new Map();
 
   for (let i = 0; i < participant.length; i++) {
-    let a = participant[i],
-      b = completion[i];
+    let a = participant[i], //leo kiki, hi
+      b = completion[i]; //leo, hi
 
     // key로 a이용 value에 map.get(a)값을 넣었지만 없기에 0이 들어감
     map.set(a, (map.get(a) || 0) + 1);
