@@ -11,9 +11,9 @@ function solution(k, score) {
       honor.push(score[i]);
       honor.sort((a, b) => b - a);
     }
-    result.push(honor.at(-1));
+    result.push(honor[honor.length - 1]);
   }
-  // return result;
+  return result;
   // score.map((el,key)=>{
   //         if(key<k) honor.push(el);
   //         if(el>Math.min(...honor)){
@@ -23,7 +23,7 @@ function solution(k, score) {
   //         }
   //         result.push(honor.at(-1));
   //     })
-  return result;
+  // return result;
   // score 정렬
 }
 
