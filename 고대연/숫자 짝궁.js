@@ -23,6 +23,10 @@
 */
 
 function solution(X, Y) {
+  // 공통으로 나타나는 숫자들로 만들수있는 가장 큰숫자를 리턴하는문제
+  // 각각의 숫자들의 빈도를 obj로 만들고
+  // 두 obj를 합치되 공통으로 가진 키만 합치고 값은 작은숫자로
+
   let Xobj = {};
   let Yobj = {};
   for (let i = 0; i < X.length; i++) {
@@ -42,7 +46,8 @@ function solution(X, Y) {
     }
   }
 
-  let arr = [];
+  // obj의 key의 숫자String은 오름차순으로 구성되기때문에 순서대로 value만큼 push
+  const arr = [];
   for (let key in obj) {
     for (let i = 0; i < obj[key]; i++) {
       arr.push(key);

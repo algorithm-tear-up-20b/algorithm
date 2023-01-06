@@ -23,6 +23,7 @@
 */
 
 function solution(numbers, hand) {
+  //2차원 배열의 인덱스로 풀이 0~9 , *, #에 해당하는 좌표를 설정
   const coordinate = [
     [1, 3],
     [0, 0],
@@ -54,23 +55,23 @@ function solution(numbers, hand) {
         right = coordinate[numbers[i]];
         sentence = sentence + "R";
         break;
+      //2,5,8,0 일때 누를 좌표의 값과 L,R의 현재 위치한 값의 이동길이를 측정후 비교
       default:
-        let temp1 =
+        let Ldistance =
           Math.abs(coordinate[numbers[i]][0] - left[0]) +
           Math.abs(coordinate[numbers[i]][1] - left[1]);
-        let temp2 =
+        let Rdistance =
           Math.abs(coordinate[numbers[i]][0] - right[0]) +
           Math.abs(coordinate[numbers[i]][1] - right[1]);
 
-        let res = temp1 - temp2;
-
-        if (res > 0) {
+        if (Ldistance > Rdistance) {
           right = coordinate[numbers[i]];
           sentence = sentence + "R";
-        } else if (res < 0) {
+        } else if (Ldistance < Rdistance) {
           left = coordinate[numbers[i]];
           sentence = sentence + "L";
         } else {
+          //같을경우엔 hand값에 따라결정
           if (hand === "left") {
             left = coordinate[numbers[i]];
             sentence = sentence + "L";

@@ -34,10 +34,13 @@ function solution(k, score) {
   let fame = [];
   let arr = [];
   for (let i = 0; i < score.length; i++) {
+    //최대 k만큼 넣을수 있으므로
     if (k > fame.length) {
       fame.push(score[i]);
       fame.sort((a, b) => b - a);
-    } else if (score[i] > fame[fame.length - 1]) {
+    }
+    //마지막 점수랑비교후 크면 빼고 넣음
+    else if (score[i] > fame[fame.length - 1]) {
       fame.pop();
       fame.push(score[i]);
       fame.sort((a, b) => b - a);
