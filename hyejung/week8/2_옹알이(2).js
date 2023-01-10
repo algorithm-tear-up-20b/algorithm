@@ -77,7 +77,9 @@ console.log(solution(['ayaye', 'uuu', 'yeye', 'yemawoo', 'ayaayaa']));
 
 // 정규식을 활용한 다른 풀이
 function ref(babbling) {
+  // \1+ : 역참조 - 현재 단어를 역으로 참조해서 반복되는 두 문자를 식별하기 위해서 사용.
   const regexp1 = /(aya|ye|woo|ma)\1+/;
+  // ^...+$ : 완전히 일치하는 것이 있는지, 그게 여러개 있는지.
   const regexp2 = /^(aya|ye|woo|ma)+$/;
 
   return babbling.reduce(
