@@ -31,6 +31,28 @@
 
 => stack = stack.slice(0, -4) 으로 연속된 원소를 제거할경우 stack을 다시 탐색하기 때문에 시간초과가 뜨는 것으로 예상됨..!
 
+=> stack.splice(-4) 통과:  위 slice 메서드가 새로운 배열을 생성하여 시간이 오래걸리는것으로 생각됨. 
+*/
+
+/*
+테스트 1 〉	통과 (0.05ms, 33.5MB)
+테스트 2 〉	통과 (0.05ms, 33.4MB)
+테스트 3 〉	통과 (63.49ms, 60.4MB)
+테스트 4 〉	통과 (144.14ms, 82.1MB)
+테스트 5 〉	통과 (163.57ms, 85.4MB)
+테스트 6 〉	통과 (97.82ms, 69.5MB)
+테스트 7 〉	통과 (120.73ms, 80.3MB)
+테스트 8 〉	통과 (112.11ms, 69.4MB)
+테스트 9 〉	통과 (85.59ms, 65.9MB)
+테스트 10 〉	통과 (5.16ms, 37.9MB)
+테스트 11 〉	통과 (54.38ms, 58.4MB)
+테스트 12 〉	통과 (198.06ms, 97.9MB)
+테스트 13 〉	통과 (0.05ms, 33.4MB)
+테스트 14 〉	통과 (0.05ms, 33.4MB)
+테스트 15 〉	통과 (0.05ms, 33.4MB)
+테스트 16 〉	통과 (0.05ms, 33.4MB)
+테스트 17 〉	통과 (0.06ms, 33.4MB)
+테스트 18 〉	통과 (0.05ms, 33.5MB)
 */
 
 function solution(ingredient) {
@@ -38,17 +60,19 @@ function solution(ingredient) {
   let stack = [];
 
   for (let item of ingredient) {
+    console.log(stack);
     stack.push(item);
 
     if (stack.length >= 4) {
       let burger = stack.slice(-4).join('');
 
       if (burger === '1231') {
+        stack.splice(-4);
         // stack = stack.slice(0, -4);
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
+        // stack.pop();
+        // stack.pop();
+        // stack.pop();
+        // stack.pop();
         count++;
       }
     }
