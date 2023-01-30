@@ -15,9 +15,7 @@ const getDivisors = (n) => {
 
 function solution(number, limit, power) {
   const numberArray = [];
-  let count = 0;
   for (let i = 1; i <= number; i++) {
-    let divisor = 0;
     numberArray.push(getDivisors(i));
   }
   return numberArray.map((n) => (n > limit ? power : n)).reduce((acc, cur) => acc + cur, 0);
