@@ -9,10 +9,10 @@ function solution(priorities, location) {
   let stack = [];
   let count = 0;
   let order = location;
-  while (order != -1) {
+  while (order !== -1) {
     // const max = Math.max(...priorities); // 가장 높은 우선순위 뽑기
     const length = priorities.length;
-    if (priorities[0] != Math.max(...priorities)) {
+    if (priorities[0] !== Math.max(...priorities)) {
       priorities.push(priorities.shift());
       //나머지 인쇄 대기목록에서 J보다 중요도가 높은 문서가 한 개라도 존재하면 J를 대기목록의 가장 마지막에 넣습니다.
 
