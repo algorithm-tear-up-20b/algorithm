@@ -50,7 +50,7 @@ function solution(priorities, location) {
   }
 }
 
-console.log(solution([1, 1, 9, 1, 1, 1], 0));
+// console.log(solution([1, 1, 9, 1, 1, 1], 0));
 
 /*
 테스트 1 〉	통과 (0.14ms, 33.4MB)
@@ -74,3 +74,31 @@ console.log(solution([1, 1, 9, 1, 1, 1], 0));
 테스트 19 〉	통과 (0.23ms, 33.4MB)
 테스트 20 〉	통과 (0.14ms, 33.4MB)
 */
+
+// 다른 사람의 풀이
+function ref(priorities, location) {
+  // 내가 추적하려는 task 여부와 priority 값을 넣어 객체로 변경
+  var list = priorities.map((t, i) => ({
+    my: i === location,
+    val: t,
+  }));
+
+  var count = 0;
+  while (true) {
+    // 첫번째 요소 특정
+    var cur = list.splice(0, 1)[0];
+    // some 메서드로 하나라도 우선순위가 높은 값이 있는지 찾는다.
+    if (list.some(t => t.val > cur.val)) {
+      // 우선순위가 더 높은 것이 있는 경우 배열 맨 뒤로 push
+      list.push(cur);
+    }
+    // 아닌 경우 카운트를 증감
+    else {
+      count++;
+      // 만약 현재 task 가 내가 뽑으려는 task 라면 리턴
+      if (cur.my) return count;
+    }
+  }
+}
+
+console.log(ref([1, 1, 9, 1, 1, 1], 0));
