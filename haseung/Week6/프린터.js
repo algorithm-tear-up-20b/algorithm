@@ -8,8 +8,8 @@ function solution(priorities, location) {
 
   let stack = [];
   let count = 0;
-  let order = location;
-  while (order !== -1) {
+
+  while (location !== -1) {
     // const max = Math.max(...priorities); // 가장 높은 우선순위 뽑기
     const length = priorities.length;
     if (priorities[0] !== Math.max(...priorities)) {
@@ -19,14 +19,41 @@ function solution(priorities, location) {
       // 처음 [2,1,3,2]
       // [1,3,2,2]
       // [3,2,2,1]
-      if (order == 0) order = length - 1;
-      else order -= 1;
+      if (location == 0) location = length - 1;
+      else location -= 1;
     } else {
       stack.push(priorities.shift());
       //[3]
-      order -= 1;
+      location -= 1;
     }
   }
   count += stack.length;
   return count;
 }
+
+// console.log(solution([2, 1, 3, 2], 2));
+
+/*정확성  테스트
+테스트 1 〉	통과 (0.15ms, 33.4MB)
+테스트 2 〉	통과 (0.32ms, 33.4MB)
+테스트 3 〉	통과 (0.23ms, 33.5MB)
+테스트 4 〉	통과 (0.14ms, 33.4MB)
+테스트 5 〉	통과 (0.05ms, 33.4MB)
+테스트 6 〉	통과 (0.16ms, 33.5MB)
+테스트 7 〉	통과 (0.23ms, 33.5MB)
+테스트 8 〉	통과 (0.42ms, 33.5MB)
+테스트 9 〉	통과 (0.18ms, 33.4MB)
+테스트 10 〉	통과 (0.19ms, 33.5MB)
+테스트 11 〉	통과 (0.36ms, 33.5MB)
+테스트 12 〉	통과 (0.17ms, 33.6MB)
+테스트 13 〉	통과 (0.32ms, 33.5MB)
+테스트 14 〉	통과 (0.05ms, 33.6MB)
+테스트 15 〉	통과 (0.08ms, 33.4MB)
+테스트 16 〉	통과 (0.14ms, 33.5MB)
+테스트 17 〉	통과 (0.29ms, 33.5MB)
+테스트 18 〉	통과 (0.14ms, 33.5MB)
+테스트 19 〉	통과 (0.25ms, 33.4MB)
+테스트 20 〉	통과 (0.19ms, 33.6MB)
+채점 결과
+정확성: 100.0
+합계: 100.0 / 100.0*/
