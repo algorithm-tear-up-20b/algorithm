@@ -19,9 +19,7 @@ function solution(n, t, m, p) {
   for (let i = 0; i < t * m; i++) {
     numArr.push(i.toString(n)); // "011011100101110111"
   }
-
   const numStr = numArr.join("");
-
   for (let j = 0; j < t * m; j++) {
     if (j % m === p - 1) answer += numStr[j].toUpperCase(); //"0111"
   }
