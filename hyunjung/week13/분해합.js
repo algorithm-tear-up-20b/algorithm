@@ -1,9 +1,9 @@
-const fs = require("fs");
-const readFileSyncAddress = "/dev/stdin";
+const fs = require("fs")
+const readFileSyncAddress = "/dev/stdin"
 
-const input = fs.readFileSync(readFileSyncAddress).toString();
+const input = fs.readFileSync(readFileSyncAddress).toString()
 
-const n = parseInt(input);
+const n = parseInt(input)
 
 const solution = (n) => {
   /*
@@ -14,35 +14,35 @@ const solution = (n) => {
     따라서 생성자는 분해합(n) - 27부터 탐색
   */
 
-  let digit = 0;
+  let digit = 0
 
   const getDigit = (n) => {
-    if (n / 10 <= 0) return digit;
-    digit++;
-    getDigit(n / 10);
-  };
+    if (n / 10 <= 0) return digit
+    digit++
+    getDigit(n / 10)
+  }
 
-  getDigit(n);
+  getDigit(n)
 
-  let answer = 0;
+  let answer = 0
 
   for (let i = n - digit * 9; i < n; i++) {
-    let sum = i; //생성자 후보
-    const stringN = String(i);
+    let sum = i //생성자 후보
+    const stringN = String(i)
 
     for (let j = 0; j < stringN.length; j++) {
-      sum += parseInt(stringN[j]);
+      sum += parseInt(stringN[j])
     }
 
     //생성자 후보 + 자릿수 합계가 분해합과 같은 경우
     if (sum === n) {
-      answer = i;
-      break;
+      answer = i
+      break
     }
   }
-  return answer;
-};
+  return answer
+}
 
 //제출
-const answer = solution(n);
-console.log(answer);
+const answer = solution(n)
+console.log(answer)
