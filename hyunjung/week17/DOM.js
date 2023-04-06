@@ -1,3 +1,4 @@
+//시간 초과
 const fs = require("fs")
 const readFileSyncAddress = "/dev/stdin"
 const input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n")
